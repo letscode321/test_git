@@ -1,0 +1,23 @@
+pipeline {
+   agent any 
+   stages {
+    stage ('Build')
+	{ 
+	  echo 'Building the project'
+	}
+	stage ('test')
+	{ 
+	  echo 'testing  the project'
+	}
+	stage('Deploy')
+	{ 
+	  echo 'Deploy the project'
+	}
+    }
+	
+	post {
+	  always {
+	    emailext body: 'learning jenkins', subject: 'pipeline status', to: 'codervishal74@gmail.com'
+	   }
+	}
+}
