@@ -1,17 +1,29 @@
 pipeline {
    agent any 
-   stages {
-    stage ('Build')
+   stages 
+   {
+    stage('Build')
 	{ 
+	  steps
+	  {
 	  echo 'Building the project'
+	  }
 	}
-	stage ('test')
+	
+	stage('test')
 	{ 
+	 steps
+	 {
 	  echo 'testing  the project'
+	 }
 	}
+	
 	stage('Deploy')
 	{ 
+	  steps
+	  {
 	  echo 'Deploy the project'
+	  }
 	}
     }
 	
@@ -20,4 +32,5 @@ pipeline {
 	    emailext body: 'learning jenkins', subject: 'pipeline status', to: 'codervishal74@gmail.com'
 	   }
 	}
+ 
 }
